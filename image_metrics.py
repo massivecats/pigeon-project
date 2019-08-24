@@ -1,8 +1,12 @@
 from PIL import Image
+import sys
 
 
-def calculate_brightness(image):
-    image = Image.open(image)
+def calculate_brightness(image, file=False):
+    if file:
+        image = Image.open(image)
+    else:
+        image = Image.fromarray(image)
 
     greyscale_image = image.convert('L')
     histogram = greyscale_image.histogram()
@@ -14,3 +18,15 @@ def calculate_brightness(image):
         brightness += ratio * (-scale + index)
 
     return 1 if brightness == 255 else brightness / scale
+
+
+def main():
+    image = sys.argv[1]
+    print(calculate_brightness(image, file=True))
+
+
+if __name__ == '__main__':
+    main()
+
+
+
