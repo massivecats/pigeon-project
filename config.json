@@ -1,0 +1,10 @@
+{
+  "image_path": "images",
+  "log_path": "log",
+  "metadata_path": "metadata",
+  "sensor_location_city": "Berlin",
+  "sensor_location_lat": 53,
+  "sensor_location_lng": 13,
+  "acquisition_delay": 180,
+  "OWM_API_KEY": ""
+}

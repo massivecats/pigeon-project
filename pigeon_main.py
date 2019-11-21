@@ -126,7 +126,7 @@ class Image:
         send request to openweathermap to get current weather data
         :return: nothing
         """
-        url = openweathermap_current + read_config('API_KEY')
+        url = openweathermap_current + read_config('OWM_API_KEY')
         r = requests.get(url)
         result_data = r.json()
 
@@ -202,7 +202,8 @@ def main():
     if not acquisition_delay:
         acquisition_delay = read_config('acquisition_delay')
 
-    exposures = [200, 400, 800, 1000, 1200, 1400]
+    # exposures = [200, 400, 800, 1000, 1200, 1400]
+    exposures = [expo for expo in range(100, 2100, 100)]
 
     if mode == 'continuous':
         try:
